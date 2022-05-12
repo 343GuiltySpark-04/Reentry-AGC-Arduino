@@ -1,8 +1,8 @@
 import serial, sys, json, time
 
-ser = serial.Serial('COM3')
+port = serial.Serial('COM5')
 
 while True:
-    j = json.load(open(sys.argv[1]))
-    ser.write(str(j['IlluminateUplinkActy'].encode()))
+    data = json.load(open(sys.argv[1]))
+    port.write(str(data['IlluminateUplinkActy'].encode()))
     time.sleep(10)
