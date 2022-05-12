@@ -23,4 +23,4 @@ while True:
     port.write("P".encode())
     port.write(str(data['ProgramD1']).encode())
     port.write(str(data['ProgramD2']).encode())
-    time.sleep(1)
+    time.sleep(0.2)
