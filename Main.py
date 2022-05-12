@@ -12,4 +12,4 @@ while True:
     #data = json.load(open(sys.argv[1]))
     data = json.load(open(path_agc_json))
     port.write(str(1 if data['IlluminateCompLight'] else 0).encode())
-    time.sleep(3)
+    time.sleep(1)
