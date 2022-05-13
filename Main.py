@@ -51,5 +51,6 @@ while True:
         port.write(str(data['ProgramD1']).encode())
         port.write(str(data['ProgramD2']).encode())
         time.sleep(0.3)
+        # TODO: Spend an hour or so tinkering with the sleep delay!
     except json.JSONDecodeError:
         pass
