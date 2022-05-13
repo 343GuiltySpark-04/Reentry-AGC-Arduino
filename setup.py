@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='Reentry-AGC-Arduino',
-    version='0.3',
+    version='0.4b',
     packages=[''],
     install_requires=[
         'pyserial'
