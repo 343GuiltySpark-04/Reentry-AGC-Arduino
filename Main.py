@@ -1,6 +1,8 @@
 # AGC JSON - Serial Interface client for the AGC Arduino Interface project for Reentry: An Orbital Simulator.
 # GitHub Repo: https://github.com/343GuiltySpark-04/Reentry-AGC-Arduino
-# And don't forget to grab the Arduino side software from its repo:
+# And don't forget to grab the Arduino side software from its repo.
+# https://github.com/343GuiltySpark-04/AGC_interface_Reentry
+# Version: 0.4c
 
 
 import json
