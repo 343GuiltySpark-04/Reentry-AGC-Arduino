@@ -15,6 +15,7 @@ while True:
         port.write(str(1 if data['IlluminateCompLight'] else 0).encode())
         port.write(str(data['IlluminateStby']).encode())
         port.write(str(data['IlluminateUplinkActy']).encode())
+        port.write(str(data['IlluminateOprErr']).encode())
         port.write("V".encode())
         port.write(str(data['VerbD1']).encode())
         port.write(str(data['VerbD2']).encode())
