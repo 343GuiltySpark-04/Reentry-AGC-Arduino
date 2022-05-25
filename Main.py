@@ -23,9 +23,12 @@ class Reader(threading.Thread):
         threading.Thread.__init__(self)
 
 
+    def run(self):
+        port.write()
+
+
     while True:
         try:
-
             data = json.load(open(path_agc_json))
             port.write("#".encode())
             port.write(str(1 if data['IlluminateCompLight'] else 0).encode())
