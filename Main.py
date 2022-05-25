@@ -15,6 +15,7 @@ import threading
 path_export_apollo = os.path.join(os.environ['APPDATA'], r'..\LocalLow\Wilhelmsen Studios\ReEntry\Export\Apollo')
 path_agc_json = os.path.join(path_export_apollo, 'outputAGC.json')
 port = serial.Serial('COM5')
+thread_started = False
 
 
 class Reader(threading.Thread):
@@ -22,10 +23,15 @@ class Reader(threading.Thread):
     def __init__(self):
         threading.Thread.__init__(self)
 
-
     def run(self):
-        port.write()
+        reg_sel = 1
+        while True:
 
+            if reg_sel > 3:
+                reg_sel = 1
+            port.write(str(reg_sel).encode())
+            reg_sel += 1
+            time.sleep(5)
 
     while True:
         try:
