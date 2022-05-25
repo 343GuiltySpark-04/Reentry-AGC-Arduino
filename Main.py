@@ -19,8 +19,13 @@ port = serial.Serial('COM5')
 
 class Reader(threading.Thread):
 
+    def __init__(self):
+        threading.Thread.__init__(self)
+
+
     while True:
         try:
+
             data = json.load(open(path_agc_json))
             port.write("#".encode())
             port.write(str(1 if data['IlluminateCompLight'] else 0).encode())
