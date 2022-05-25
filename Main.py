@@ -20,7 +20,6 @@ while True:
         data = json.load(open(path_agc_json))
         port.write("#".encode())
         port.write(str(1 if data['IlluminateCompLight'] else 0).encode())
-        port.write(str(data['IlluminateStby']).encode())
         port.write(str(data['IlluminateUplinkActy']).encode())
         port.write("<".encode())
         port.write(str(data['Register1Sign']).encode())
