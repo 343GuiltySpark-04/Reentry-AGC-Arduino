@@ -3,8 +3,7 @@
 # And don't forget to grab the Arduino side software from its repo.
 # https://github.com/343GuiltySpark-04/AGC_interface_Reentry
 # Version: 0.5b
-
-
+import asyncio
 import json
 import serial
 import sys
@@ -17,6 +16,16 @@ path_export_apollo = os.path.join(os.environ['APPDATA'], r'..\LocalLow\Wilhelmse
 path_agc_json = os.path.join(path_export_apollo, 'outputAGC.json')
 port = serial.Serial('COM5')
 reg_sel = 1
+
+
+async def file_load():
+    global file_data
+    while True:
+        async with aiofile.async_open(path_agc_json, 'r') as f:
+            j = json.loads(await f.read())
+
+        await asyncio.sleep(0.1)
+
 
 while True:
     try:
