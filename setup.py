@@ -5,7 +5,7 @@ setup(
     version='0.5a',
     packages=[''],
     install_requires=[
-        'pyserial'
+        'pyserial', 'aiofile'
     ],
     url='https://github.com/343GuiltySpark-04/Reentry-AGC-Arduino',
     license='MIT',

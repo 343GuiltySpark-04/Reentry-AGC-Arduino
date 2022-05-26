@@ -11,6 +11,7 @@ import sys
 import time
 import os
 import threading
+import aiofile
 
 path_export_apollo = os.path.join(os.environ['APPDATA'], r'..\LocalLow\Wilhelmsen Studios\ReEntry\Export\Apollo')
 path_agc_json = os.path.join(path_export_apollo, 'outputAGC.json')
