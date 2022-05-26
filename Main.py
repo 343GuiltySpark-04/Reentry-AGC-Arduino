@@ -16,6 +16,7 @@ path_export_apollo = os.path.join(os.environ['APPDATA'], r'..\LocalLow\Wilhelmse
 path_agc_json = os.path.join(path_export_apollo, 'outputAGC.json')
 port = serial.Serial('COM5')
 reg_sel = 1
+file_data = {}
 
 
 async def file_load():
