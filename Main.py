@@ -15,35 +15,16 @@ import threading
 path_export_apollo = os.path.join(os.environ['APPDATA'], r'..\LocalLow\Wilhelmsen Studios\ReEntry\Export\Apollo')
 path_agc_json = os.path.join(path_export_apollo, 'outputAGC.json')
 port = serial.Serial('COM5')
-thread_started = False
 reg_sel = 1
-
-
-class Reader(threading.Thread):
-
-    def __init__(self, null):
-        threading.Thread.__init__(self)
-        self.null = null
-
-    def run(self):
-
-        global reg_sel
-        while True:
-
-            if reg_sel > 3:
-                reg_sel = 1
-            reg_sel += 1
-            time.sleep(5)
-
 
 while True:
     try:
         data = json.load(open(path_agc_json))
-        t = Reader('null')
+
         port.write("#".encode())
-        t.start()
+
         print("#")
-        port.write(str(reg_sel).encode())
+        # port.write(str(reg_sel).encode())
         print(reg_sel)
         port.write(str(1 if data['IlluminateCompLight'] else 0).encode())
         print(str(data['IlluminateCompLight']))
