@@ -23,7 +23,7 @@ async def file_load():
     global file_data
     while True:
         async with aiofile.async_open(path_agc_json, 'r') as f:
-            j = json.loads(await f.read())
+            file_data = json.loads(await f.read())
 
         await asyncio.sleep(0.1)
 
