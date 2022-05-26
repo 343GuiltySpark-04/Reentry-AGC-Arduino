@@ -50,7 +50,7 @@ async def writer():
         port.write("#".encode())
 
         print("#")
-        # port.write(str(reg_sel).encode())
+        port.write(str(reg_sel).encode())
         print(reg_sel)
         port.write(str(1 if file_data['IlluminateCompLight'] else 0).encode())
         print(str(file_data['IlluminateCompLight']))
