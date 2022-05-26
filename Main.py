@@ -15,7 +15,7 @@ import aiofile
 path_export_apollo = os.path.join(os.environ['APPDATA'], r'..\LocalLow\Wilhelmsen Studios\ReEntry\Export\Apollo')
 path_agc_json = os.path.join(path_export_apollo, 'outputAGC.json')
 port = serial.Serial('COM5')
-reg_sel = 1
+reg_sel = 0
 file_data = {}
 
 
@@ -26,6 +26,15 @@ async def file_load():
             file_data = json.loads(await f.read())
 
         await asyncio.sleep(0.1)
+
+
+async def reg_switcher():
+    global reg_sel
+    while True:
+        if reg_sel > 3:
+            reg_sel = 0
+        reg_sel += 1
+        await asyncio.sleep(10)
 
 
 while True:
