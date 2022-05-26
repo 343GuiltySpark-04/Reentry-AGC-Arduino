@@ -2,10 +2,10 @@ from setuptools import setup
 
 setup(
     name='Reentry-AGC-Arduino',
-    version='0.4c',
+    version='0.7',
     packages=[''],
     install_requires=[
-        'pyserial'
+        'pyserial', 'aiofile'
     ],
     url='https://github.com/343GuiltySpark-04/Reentry-AGC-Arduino',
     license='MIT',
