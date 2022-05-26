@@ -2,7 +2,7 @@
 # GitHub Repo: https://github.com/343GuiltySpark-04/Reentry-AGC-Arduino
 # And don't forget to grab the Arduino side software from its repo.
 # https://github.com/343GuiltySpark-04/AGC_interface_Reentry
-# Version: 0.6
+# Version: 0.6d
 import asyncio
 import json
 import serial
@@ -37,7 +37,7 @@ async def reg_switcher():
         if reg_sel > 2:
             reg_sel = 0
         reg_sel += 1
-        await asyncio.sleep(10)
+        await asyncio.sleep(3)
 
 
 async def writer():
@@ -50,7 +50,6 @@ async def writer():
         port.write("#".encode())
 
         print("#")
-        port.write(str(reg_sel).encode())
         print(reg_sel)
         port.write(str(1 if file_data['IlluminateCompLight'] else 0).encode())
         print(str(file_data['IlluminateCompLight']))
@@ -58,6 +57,10 @@ async def writer():
 
         if reg_sel == 1:
             port.write("<".encode())
+            port.write("R".encode())
+            port.write("1".encode())
+            port.write(":".encode())
+            port.write(" ".encode())
             port.write(str(file_data['Register1Sign']).encode())
             port.write(str(file_data['Register1D1']).encode())
             port.write(str(file_data['Register1D2']).encode())
@@ -67,6 +70,10 @@ async def writer():
             port.write(">".encode())
         elif reg_sel == 2:
             port.write("<".encode())
+            port.write("R".encode())
+            port.write("2".encode())
+            port.write(":".encode())
+            port.write(" ".encode())
             port.write(str(file_data['Register2Sign']).encode())
             port.write(str(file_data['Register2D1']).encode())
             port.write(str(file_data['Register2D2']).encode())
@@ -76,6 +83,11 @@ async def writer():
             port.write(">".encode())
         elif reg_sel == 3:
             port.write("<".encode())
+            port.write("<".encode())
+            port.write("R".encode())
+            port.write("3".encode())
+            port.write(":".encode())
+            port.write(" ".encode())
             port.write(str(file_data['Register3Sign']).encode())
             port.write(str(file_data['Register3D1']).encode())
             port.write(str(file_data['Register3D2']).encode())
