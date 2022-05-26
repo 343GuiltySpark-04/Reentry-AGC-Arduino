@@ -95,6 +95,7 @@ async def writer():
             port.write(str(file_data['Register3D4']).encode())
             port.write(str(file_data['Register3D5']).encode())
             port.write(">".encode())
+        port.write("X".encode())
         port.write("V".encode())
         port.write(str(file_data['VerbD1']).encode())
         port.write(str(file_data['VerbD2']).encode())
@@ -106,6 +107,7 @@ async def writer():
         port.write("P".encode())
         port.write(str(file_data['ProgramD1']).encode())
         port.write(str(file_data['ProgramD2']).encode())
+        port.write("Z".encode())
         await asyncio.sleep(0.3)
         # TODO: Spend an hour or so tinkering with the sleep delay!
 
