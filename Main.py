@@ -37,7 +37,7 @@ async def reg_switcher():
         await asyncio.sleep(10)
 
 
-async def main():
+async def writer():
     while True:
         try:
             # data = json.load(open(path_agc_json))
@@ -89,3 +89,12 @@ async def main():
             # TODO: Spend an hour or so tinkering with the sleep delay!
         except json.JSONDecodeError:
             pass
+
+
+async def main():
+    await asyncio.gather(*[file_load(), reg_switcher(), writer()])
+
+
+if __name__ == '__main__':
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(main())
