@@ -2,7 +2,7 @@
 # GitHub Repo: https://github.com/343GuiltySpark-04/Reentry-AGC-Arduino
 # And don't forget to grab the Arduino side software from its repo.
 # https://github.com/343GuiltySpark-04/AGC_interface_Reentry
-# Version: 0.6d
+# Version: 0.7
 import asyncio
 import json
 import serial
@@ -37,7 +37,7 @@ async def reg_switcher():
         if reg_sel > 2:
             reg_sel = 0
         reg_sel += 1
-        await asyncio.sleep(3)
+        await asyncio.sleep(6)
 
 
 async def writer():
@@ -45,7 +45,6 @@ async def writer():
         if len(file_data.keys()) == 0:
             await asyncio.sleep(0.3)
             continue
-        # data = json.load(open(path_agc_json))
 
         port.write("#".encode())
 
